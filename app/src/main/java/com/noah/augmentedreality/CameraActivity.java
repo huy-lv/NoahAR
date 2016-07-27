@@ -197,7 +197,7 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
             azimuth = (float) (((results[0] * 180) / Math.PI) + 180);
             pitch = (float) (((results[1] * 180 / Math.PI)) + 90);
             roll = (float) (((results[2] * 180 / Math.PI)) + 180);
-            mCamera.setRotation(mCamera.getRotX(), azimuth - 360, roll);
+            mCamera.setRotation(mCamera.getRotX(), azimuth - 360, mCamera.getRotZ());
             orientationText.setText(azimuth + "\n" + pitch + "\n" + roll + "\n" + mRenderer.getCamera().getRotX() + "\n" + mRenderer.getCamera().getRotY() + "\n" + mRenderer.getCamera().getRotZ());
         }
     }
