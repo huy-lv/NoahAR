@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\simple_alpha_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\simple_alpha_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\masked_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\masked_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\video_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\video_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\particle_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\particle_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\video_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\video_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\diffuse_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\diffuse_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\color_picker_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\color_picker_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\sphere_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\sphere_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\skybox_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\skybox_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\masked_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\masked_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\gouraud_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\gouraud_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\simple_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\simple_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\skybox_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\skybox_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\diffuse_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\diffuse_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\phong_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\phong_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\bumpmap_phong_material.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\bumpmap_phong_material.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\cube_map_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\cube_map_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\simple_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\simple_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\cube_map_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\cube_map_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\gouraud_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\gouraud_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\sphere_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\sphere_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\particle_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\particle_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\color_picker_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\color_picker_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\phong_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\phong_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\bumpmap_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\bumpmap_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\toon_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\toon_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\debug\\raw\\specular_mask_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\src\\main\\res\\raw\\specular_mask_material_fragment.glsl"
+    }
+]

@@ -1,0 +1,110 @@
+[
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\masked_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\masked_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\bumpmap_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\bumpmap_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\toon_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\toon_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\phong_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\phong_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\gouraud_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\gouraud_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\color_picker_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\color_picker_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\sphere_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\sphere_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\particle_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\particle_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\phong_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\phong_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\particle_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\particle_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\diffuse_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\diffuse_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\color_picker_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\color_picker_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\masked_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\masked_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\diffuse_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\diffuse_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\gouraud_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\gouraud_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\specular_mask_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\specular_mask_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\sphere_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\sphere_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\video_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\video_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\cube_map_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\cube_map_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\video_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\video_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\simple_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\simple_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\simple_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\simple_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\skybox_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\skybox_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\bumpmap_phong_material.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\bumpmap_phong_material.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\cube_map_material_vertex.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\cube_map_material_vertex.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\skybox_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\skybox_material_fragment.glsl"
+    },
+    {
+        "merged": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\res\\merged\\androidTest\\debug\\raw\\simple_alpha_material_fragment.glsl",
+        "source": "D:\\project\\ASprj\\AugmentedReality\\rajawali\\build\\intermediates\\bundles\\debug\\res\\raw\\simple_alpha_material_fragment.glsl"
+    }
+]
