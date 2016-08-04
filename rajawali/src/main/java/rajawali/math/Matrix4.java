@@ -1,6 +1,22 @@
 package rajawali.math;
 
 public final class Matrix4 {
+	public static final int M00 = 0;  // 0;
+	public static final int M01 = 4;  // 1;
+	public static final int M02 = 8;  // 2;
+	public static final int M03 = 12; // 3;
+	public static final int M10 = 1;  // 4;
+	public static final int M11 = 5;  // 5;
+	public static final int M12 = 9;  // 6;
+	public static final int M13 = 13; // 7;
+	public static final int M20 = 2;  // 8;
+	public static final int M21 = 6;  // 9;
+	public static final int M22 = 10; // 10;
+	public static final int M23 = 14; // 11;
+	public static final int M30 = 3;  // 12;
+	public static final int M31 = 7;  // 13;
+	public static final int M32 = 11; // 14;
+	public static final int M33 = 15; // 15;
 	private float[] m; 
 	private float[] mTmp;
 	
@@ -24,6 +40,42 @@ public final class Matrix4 {
 	            m10, m11, m12, m13,
 	            m20, m21, m22, m23,
 	            m30, m31, m32, m33);
+	}
+
+	public static Matrix4 getTranslationMatrix(final Number3D v) {
+		return new Matrix4(
+				1.0f, 0, 0, v.x,
+				0, 1.0f, 0, v.y,
+				0, 0, 1.0f, v.z,
+				0, 0, 0, 1.0f
+		);
+	}
+
+	public static Matrix4 getTrans(float x, float y, float z) {
+		return new Matrix4(
+				1.0f, 0, 0, x,
+				0, 1.0f, 0, y,
+				0, 0, 1.0f, z,
+				0, 0, 0, 1.0f
+		);
+	}
+
+	public static Matrix4 getScaleMatrix(final Number3D v) {
+		return new Matrix4(
+				v.x, 0, 0, 0,
+				0, v.y, 0, 0,
+				0, 0, v.z, 0,
+				0, 0, 0, 1.0f
+		);
+	}
+
+	public static Matrix4 getScaleMatrix(float x, float y, float z) {
+		return new Matrix4(
+				x, 0, 0, 0,
+				0, y, 0, 0,
+				0, 0, z, 0,
+				0, 0, 0, 1.0f
+		);
 	}
 	
 	public void setAll(float m00, float m01, float m02, float m03,
@@ -176,8 +228,11 @@ public final class Matrix4 {
 
         m[0] = invScale.x * mTmp[0]; m[1] = invScale.x * mTmp[1]; m[2] = invScale.x * mTmp[2]; m[3] = invTranslate.x;
         m[4] = invScale.y * mTmp[4]; m[5] = invScale.y * mTmp[5]; m[6] = invScale.y * mTmp[6]; m[7] = invTranslate.y;
-        m[8] = invScale.z * mTmp[8]; m[9] = invScale.z * mTmp[9]; m[10] = invScale.z * mTmp[10]; m[11] = invTranslate.z;		
-        m[12] = 0; m[13] = 0; m[14] = 0; m[15] = 1;
+		m[8] = invScale.z * mTmp[8];
+		m[9] = invScale.z * mTmp[9];
+		m[10] = invScale.z * mTmp[10];
+		m[11] = invTranslate.z;
+		m[12] = 0; m[13] = 0; m[14] = 0; m[15] = 1;
     }
 	
 	public Number3D transform(final Number3D v) {
@@ -200,17 +255,17 @@ public final class Matrix4 {
 				m[0] * mTmp[1] + m[1] * mTmp[5] + m[2] * mTmp[9] + m[3] * mTmp[13],
 		        m[0] * mTmp[2] + m[1] * mTmp[6] + m[2] * mTmp[10] + m[3] * mTmp[14],
 		        m[0] * mTmp[3] + m[1] * mTmp[7] + m[2] * mTmp[11] + m[3] * mTmp[15],
-		
+
 		        m[4] * mTmp[0] + m[5] * mTmp[4] + m[6] * mTmp[8] + m[7] * mTmp[12],
 		        m[4] * mTmp[1] + m[5] * mTmp[5] + m[6] * mTmp[9] + m[7] * mTmp[13],
 		        m[4] * mTmp[2] + m[5] * mTmp[6] + m[6] * mTmp[10] + m[7] * mTmp[14],
 		        m[4] * mTmp[3] + m[5] * mTmp[7] + m[6] * mTmp[11] + m[7] * mTmp[15],
-		
+
 		        m[8] * mTmp[0] + m[9] * mTmp[4] + m[10] * mTmp[8] + m[11] * mTmp[12],
 		        m[8] * mTmp[1] + m[9] * mTmp[5] + m[10] * mTmp[9] + m[11] * mTmp[13],
 		        m[8] * mTmp[2] + m[9] * mTmp[6] + m[10] * mTmp[10] + m[11] * mTmp[14],
 		        m[8] * mTmp[3] + m[9] * mTmp[7] + m[10] * mTmp[11] + m[11] * mTmp[15],
-		
+
 		        m[12] * mTmp[0] + m[13] * mTmp[4] + m[14] * mTmp[8] + m[15] * mTmp[12],
 		        m[12] * mTmp[1] + m[13] * mTmp[5] + m[14] * mTmp[9] + m[15] * mTmp[13],
 		        m[12] * mTmp[2] + m[13] * mTmp[6] + m[14] * mTmp[10] + m[15] * mTmp[14],
@@ -245,24 +300,24 @@ public final class Matrix4 {
 	        m[1] + mTmp[1],
 	        m[2] + mTmp[2],
 	        m[3] + mTmp[3],
-	
+
 	        m[4] + mTmp[4],
 	        m[5] + mTmp[5],
 	        m[6] + mTmp[6],
 	        m[7] + mTmp[7],
-	
-	        m[8] + mTmp[8],
+
+				m[8] + mTmp[8],
 	        m[9] + mTmp[9],
 	        m[10] + mTmp[10],
 	        m[11] + mTmp[11],
-	
-	        m[12] + mTmp[12],
+
+				m[12] + mTmp[12],
 	        m[13] + mTmp[13],
 	        m[14] + mTmp[14],
 	        m[15] + mTmp[15]
 	       );
 	}
-	
+
 	public Matrix4 subtract(final Matrix4 m2)
     {
         m2.toFloatArray(mTmp);
@@ -288,19 +343,16 @@ public final class Matrix4 {
         		m[15] - mTmp[15]
         );
     }
-	
+
 	public boolean equals(final Matrix4 m2)
     {
 		m2.toFloatArray(mTmp);
-        if( 
-            m[0] != mTmp[0] || m[1] != mTmp[1] || m[2] != mTmp[2] || m[3] != mTmp[3] ||
-            m[4] != mTmp[4] || m[5] != mTmp[5] || m[6] != mTmp[6] || m[7] != mTmp[7] ||
-            m[8] != mTmp[8] || m[9] != mTmp[9] || m[10] != mTmp[10] || m[11] != mTmp[11] ||
-            m[12] != mTmp[12] || m[13] != mTmp[13] || m[14] != mTmp[14] || m[15] != mTmp[15] )
-            return false;
-        return true;
-    }
-	
+		return !(m[0] != mTmp[0] || m[1] != mTmp[1] || m[2] != mTmp[2] || m[3] != mTmp[3] ||
+				m[4] != mTmp[4] || m[5] != mTmp[5] || m[6] != mTmp[6] || m[7] != mTmp[7] ||
+				m[8] != mTmp[8] || m[9] != mTmp[9] || m[10] != mTmp[10] || m[11] != mTmp[11] ||
+				m[12] != mTmp[12] || m[13] != mTmp[13] || m[14] != mTmp[14] || m[15] != mTmp[15]);
+	}
+
 	public Matrix4 transpose()
     {
         return new Matrix4(m[0], m[4], m[8], m[12],
@@ -308,7 +360,11 @@ public final class Matrix4 {
                        m[2], m[6], m[9], m[14],
                        m[3], m[7], m[10], m[15]);
     }
-	
+
+	public Number3D getTranslation() {
+		return new Number3D(m[3], m[7], m[11]);
+	}
+
 	public void setTranslation(final Number3D v )
     {
         m[3] = v.x;
@@ -316,11 +372,6 @@ public final class Matrix4 {
         m[11] = v.z;
     }
 
-    public Number3D getTranslation()
-    {
-    	return new Number3D(m[3], m[7], m[11]);
-    }
-    
     public void makeTrans(final Number3D v )
     {
         m[0] = 1.0f; m[1] = 0; m[2] = 0; m[3] = v.x;
@@ -337,26 +388,6 @@ public final class Matrix4 {
         m[12] = 0; m[13] = 0; m[14] = 0; m[15] = 1.0f;
     }
 
-    public static Matrix4 getTranslationMatrix(final Number3D v)
-    {
-    	return new Matrix4(
-	        1.0f, 	0,		0,		v.x,
-	        0, 		1.0f,	0, 		v.y,
-	        0, 		0, 		1.0f,	v.z,
-	        0, 		0, 		0,		1.0f
-        );
-    }
-
-    public static Matrix4 getTrans(float x, float y, float z)
-    {
-    	return new Matrix4(
-	        1.0f, 	0,		0,		x,
-	        0, 		1.0f,	0,		y,
-	        0,		0,		1.0f,	z,
-	        0,		0,		0,		1.0f
-	    );
-    }
-
     public void setScale(final Number3D v)
     {
         m[0] = v.x;
@@ -364,24 +395,11 @@ public final class Matrix4 {
         m[10] = v.z;
     }
 
-    public static Matrix4 getScaleMatrix(final Number3D v)
-    {
-        return new Matrix4(
-	        v.x,	0,		0,		0,
-	        0,		v.y,	0,		0,
-	        0,		0,		v.z,	0,
-	        0,		0,		0,		1.0f
-	    );
-    }
-
-    public static Matrix4 getScaleMatrix(float x, float y, float z)
-    {
-        return new Matrix4(
-	        x, 		0,		0,		0,
-	        0,		y,		0,		0,
-	        0,		0,		z,		0,
-	        0,		0,		0,		1.0f
-        );
-    }
-    
+	public double[] getDoubleValues() {
+		double[] mm = new double[16];
+		for (int i = 0; i < 16; i++) {
+			mm[i] = m[i];
+		}
+		return mm;
+	}
 }

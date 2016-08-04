@@ -7,8 +7,6 @@ import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.hardware.Camera;
 import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
@@ -17,6 +15,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -29,14 +28,18 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.List;
+import com.google.vr.sdk.base.sensors.HeadTracker;
 
-import rajawali.BaseObject3D;
+import java.util.List;
 
 /**
  * Created by HuyLV-CT on 7/21/2016.
  */
-public class CameraActivity extends AppCompatActivity implements SurfaceHolder.Callback, SensorEventListener, View.OnClickListener {
+public class CameraActivity extends AppCompatActivity implements SurfaceHolder.Callback, View.OnClickListener, View.OnTouchListener {
+    private static final float ALPHA = 0.25f;
+    public int i = 0;
+    public TextView orientationText;
+    public HeadTracker headTracker;
     private FrameLayout frameLayout;
     private ImageView mLoaderGraphic;
     private boolean checkOpenGLVersion = true;
@@ -48,15 +51,11 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
     private SensorManager sensorManager;
     private Sensor magnetSensor;
     private Sensor orientationSensor;
-    public int i = 0;
-    private TextView orientationText;
     private float[] valuesAccelerometer;
     private float[] valuesMagneticField;
     private float[] matrixR;
     private float[] matrixI;
     private float[] matrixValues;
-    private static final float ALPHA = 0.25f;
-
     private float[] results;
     private Button btLeft;
     private Button btRight;
@@ -64,7 +63,6 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
     private Button btDown;
     private Button btForward;
     private Button btBackward;
-
     private rajawali.Camera mCamera;
     private float azimuth;
     private float pitch;
@@ -103,6 +101,7 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
 
         frameLayout.addView(mSurfaceView);
         frameLayout.addView(cameraView);
+        cameraView.setOnTouchListener(this);
         addButton();
 
 
@@ -121,11 +120,8 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         orientationText = new TextView(this);
         orientationText.setText("SSSSSSSSSS");
         orientationText.setTextColor(Color.WHITE);
-        orientationText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
+        ViewGroup.LayoutParams params1 = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        orientationText.setLayoutParams(params1);
         frameLayout.addView(orientationText);
 
         LayoutInflater inflater = (LayoutInflater) getBaseContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -134,12 +130,12 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         params.gravity = Gravity.BOTTOM;
         v.setLayoutParams(params);
 
-        btLeft = (Button) v.findViewById(R.id.btLeft);
-        btRight = (Button) v.findViewById(R.id.btRight);
-        btUp = (Button) v.findViewById(R.id.btUp);
-        btDown = (Button) v.findViewById(R.id.btDown);
-        btForward = (Button) v.findViewById(R.id.btForward);
-        btBackward = (Button) v.findViewById(R.id.btBackward);
+        btLeft = (Button) v.findViewById(R.id.btyp);
+        btRight = (Button) v.findViewById(R.id.btym);
+        btUp = (Button) v.findViewById(R.id.btzp);
+        btDown = (Button) v.findViewById(R.id.btzm);
+        btForward = (Button) v.findViewById(R.id.btxp);
+        btBackward = (Button) v.findViewById(R.id.btxm);
 
         btLeft.setOnTouchListener(new RepeatListener(400, 10, this));
         btRight.setOnTouchListener(new RepeatListener(400, 10, this));
@@ -149,10 +145,13 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         btBackward.setOnTouchListener(new RepeatListener(400, 10, this));
 
         frameLayout.addView(v);
+        headTracker = HeadTracker.createFromContext(this);
+
+
     }
 
-    @Override
-    public void onSensorChanged(SensorEvent event) {
+//    @Override
+//    public void onSensorChanged(SensorEvent event) {
 //        switch (event.sensor.getType()) {
 //            case Sensor.TYPE_ACCELEROMETER:
 ////                for (int i = 0; i < 3; i++) {
@@ -185,35 +184,22 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
 //        }
 
 
-        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            valuesAccelerometer = lowPass(event.values.clone(), valuesAccelerometer);
-        } else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
-            valuesMagneticField = lowPass(event.values.clone(), valuesMagneticField);
-        }
-        if (valuesAccelerometer != null && valuesMagneticField != null) {
-            SensorManager.getRotationMatrix(matrixR, matrixI, valuesAccelerometer, valuesMagneticField);
-            SensorManager.remapCoordinateSystem(matrixR, SensorManager.AXIS_X, SensorManager.AXIS_MINUS_Z, Rot);
-            SensorManager.getOrientation(matrixR, results);
-            azimuth = (float) (((results[0] * 180) / Math.PI) + 180);
-            pitch = (float) (((results[1] * 180 / Math.PI)) + 90);
-            roll = (float) (((results[2] * 180 / Math.PI)) + 180);
-            mCamera.setRotation(mCamera.getRotX(), azimuth - 360, mCamera.getRotZ());
-            orientationText.setText(azimuth + "\n" + pitch + "\n" + roll + "\n" + mRenderer.getCamera().getRotX() + "\n" + mRenderer.getCamera().getRotY() + "\n" + mRenderer.getCamera().getRotZ());
-        }
-    }
-
-    protected float[] lowPass(float[] input, float[] output) {
-        if (output == null) return input;
-        for (int i = 0; i < input.length; i++) {
-            output[i] = output[i] + ALPHA * (input[i] - output[i]);
-        }
-        return output;
-    }
-
-    @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
-    }
+//        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+//            valuesAccelerometer = lowPass(event.values.clone(), valuesAccelerometer);
+//        } else if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD) {
+//            valuesMagneticField = lowPass(event.values.clone(), valuesMagneticField);
+//        }
+//        if (valuesAccelerometer != null && valuesMagneticField != null) {
+//            SensorManager.getRotationMatrix(matrixR, matrixI, valuesAccelerometer, valuesMagneticField);
+//            SensorManager.remapCoordinateSystem(matrixR, SensorManager.AXIS_X, SensorManager.AXIS_MINUS_Z, Rot);
+//            SensorManager.getOrientation(matrixR, results);
+//            azimuth = (float) (((results[0] * 180) / Math.PI) + 180);
+//            pitch = (float) (((results[1] * 180 / Math.PI)) + 90);
+//            roll = (float) (((results[2] * 180 / Math.PI)) + 180);
+//            mCamera.setRotation(mCamera.getRotX(), azimuth - 360, mCamera.getRotZ());
+//            orientationText.setText(azimuth + "\n" + pitch + "\n" + roll + "\n" + mRenderer.getCamera().getRotX() + "\n" + mRenderer.getCamera().getRotY() + "\n" + mRenderer.getCamera().getRotZ());
+//        }
+//    }
 
 
     private void initLoaderView() {
@@ -248,6 +234,10 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         for (Camera.Size s : parameters.getSupportedPreviewSizes()) {
             Log.e("cxz", "ccc" + s.width + " " + s.height);
         }
+
+        Utils.ASE = getRealVerticalViewAngle(parameters.getVerticalViewAngle());
+//        Log.e("cxz","ccxc"+parameters.getHorizontalViewAngle()+ " "+parameters.getVerticalViewAngle()+ " "+Utils.ASE);
+
         parameters.setPreviewSize(1920, 1080);
         camera.setParameters(parameters);
         try {
@@ -260,6 +250,7 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+
     }
 
     @Override
@@ -293,60 +284,78 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         }
     }
 
-    private float[] applyLowPassFilter(float[] input, float[] output) {
-        if (output == null) return input;
-        for (int i = 0; i < input.length; i++) {
-            output[i] = output[i] + ALPHA * (input[i] - output[i]);
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN: {
+                mRenderer.getObjectAt(event.getX(), event.getY());
+                break;
+            }
+            case MotionEvent.ACTION_UP: {
+                mRenderer.selectedObject = null;
+                break;
+            }
+            case MotionEvent.ACTION_MOVE: {
+                mRenderer.moveObject(event.getX(), event.getY());
+                Log.e("cxz", "move:" + event.getX() + " " + event.getY());
+            }
         }
-        return output;
+
+        return true;
     }
+
 
     @Override
     public void onClick(View v) {
-        BaseObject3D m2 = mRenderer.m2;
-//        float x = m2.getX();
-//        float y = m2.getY();
-//        float z = m2.getZ();
-        float x = mCamera.getRotX();
-        float y = mCamera.getRotY();
-        float z = mCamera.getRotZ();
-        Log.e("cxz", x + " " + y + " " + z);
+//        float x = mCamera.getPosition().x;
+//        float y = mCamera.getPosition().y;
+//        float z = mCamera.getPosition().z;
+        float x = mRenderer.m2.getPosition().x;
+        float y = mRenderer.m2.getPosition().y;
+        float z = mRenderer.m2.getPosition().z;
+//        Vec worldPos = new Vec(x,y,z);
+//        worldPos.deviceToWorld();
+
+        Vec worldPos = mRenderer.m2.getWPosition();
+
         switch (v.getId()) {
-            case R.id.btBackward:
-                mCamera.setRotation(x - 5, y, z);
-//                m2.setPosition(x-1,y,z);
+            case R.id.btxm:
+//                mCamera.setPosition(x, y, z + 1);
+                worldPos.x -= 1;
                 break;
-            case R.id.btForward:
-                mCamera.setRotation(x + 5, y, z);
-//                m2.setPosition(x+1,y,z);
+            case R.id.btxp:
+                worldPos.x += 1;
+//                mCamera.setPosition(x, y, z - 1);
                 break;
-            case R.id.btLeft:
-                mCamera.setRotation(x, y + 5, z);
-//                m2.setPosition(x,y+1,z);
+            case R.id.btyp:
+//                mCamera.setPosition(x + 1, y, z);
+                worldPos.y += 1;
                 break;
-            case R.id.btRight:
-                mCamera.setRotation(x, y - 5, z);
-//                m2.setPosition(x,y-1,z);
+            case R.id.btym:
+                worldPos.y -= 1;
+//                mCamera.setPosition(x - 1, y, z);
                 break;
-            case R.id.btDown:
-                mCamera.setRotation(x, y, z + 1);
-//                m2.setPosition(x,y,z+1);
+            case R.id.btzm:
+                worldPos.z -= 1;
+//                mCamera.setPosition(x, y - 1, z);
                 break;
-            case R.id.btUp:
-                mCamera.setRotation(x, y, z - 1);
-//                m2.setPosition(x,y,z-1);
+            case R.id.btzp:
+                worldPos.z += 1;
+//                mCamera.setPosition(x, y + 1, z);
                 break;
         }
+        mRenderer.m2.setPositionByW(worldPos);
+        orientationText.setText("camera:" + x + " " + y + " " + z);
     }
 
 
     @Override
     protected void onPause() {
         super.onPause();
-
-        sensorManager.unregisterListener(this, orientationSensor);
-        sensorManager.unregisterListener(this, magnetSensor);
+//        sensorManager.unregisterListener(this, orientationSensor);
+//        sensorManager.unregisterListener(this, magnetSensor);
         sensorManager = null;
+        headTracker.stopTracking();
     }
 
     @Override
@@ -357,8 +366,12 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         if (sensors.size() > 0) magnetSensor = sensors.get(0);
         sensors = sensorManager.getSensorList(Sensor.TYPE_ACCELEROMETER);
         if (sensors.size() > 0) orientationSensor = sensors.get(0);
+//        sensorManager.registerListener(this, magnetSensor, SensorManager.SENSOR_DELAY_FASTEST);
+//        sensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_FASTEST);
+        headTracker.startTracking();
+    }
 
-        sensorManager.registerListener(this, magnetSensor, SensorManager.SENSOR_DELAY_NORMAL);
-        sensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    float getRealVerticalViewAngle(float originalAngle) {
+        return 2 * (float) Math.toDegrees(Math.atan(0.75f * Math.tan(Math.toRadians(originalAngle / 2))));
     }
 }
